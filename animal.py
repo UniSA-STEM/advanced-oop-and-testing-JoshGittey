@@ -16,3 +16,10 @@ class HealthRecord:
         self.treatment_notes = treatment_notes
     def __str__(self):
         return f"{self.date} - {self.description} -(Severity: {self.severity})"
+
+class Animal:
+   def __init__(self, name, species, age, diet):
+        self.name = name
+        self.species = species
+        self.age = age
+        self.diet = diet
