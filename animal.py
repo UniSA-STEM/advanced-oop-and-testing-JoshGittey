@@ -14,3 +14,5 @@ class HealthRecord:
         self.description = description
         self.severity = severity
         self.treatment_notes = treatment_notes
+    def __str__(self):
+        return f"{self.date} - {self.description} -(Severity: {self.severity})"
