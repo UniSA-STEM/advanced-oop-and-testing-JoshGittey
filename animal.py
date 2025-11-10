@@ -28,17 +28,22 @@ class Animal:
         self.__diet = diet
         self.__health_records = [] # list will hold HealthRecord objects
 
-    def get_name(self):
+    @property
+    def name(self):
         return self.__name
 
-    def set_name(self, name):
+    @name.setter
+    def name(self, name):
         if not name:
             raise ValueError("Name cannot be empty")
         self.__name = name
-    def get_age(self):
+
+    @property
+    def age(self):
         return self.__age
 
-    def set_age(self, age):
+    @age.setter
+    def age(self, age):
         if age < 0:
             raise ValueError("Age cannot be negative")
         self.__age = age
