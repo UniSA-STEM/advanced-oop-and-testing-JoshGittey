@@ -8,6 +8,7 @@ This is my own work as defined by the University's Academic Integrity Policy.
 """
 
 from datetime import date
+
 class HealthRecord:
     def __init__ (self, description, severity, treatment_notes =" "):
         self.date = date.today()
@@ -20,12 +21,13 @@ class HealthRecord:
 
 class Animal:
 
-    def __init__(self, name, species, age, diet):
+    def __init__(self, name, species, age, diet, sound):
        #Encapsulated attributes
         self.__name = name
         self.__species = species
         self.__age = age
         self.__diet = diet
+        self.__sound = sound
         self.__health_records = [] # list will hold HealthRecord objects
 
     @property
@@ -39,6 +41,16 @@ class Animal:
         self.__name = name
 
     @property
+    def species(self):
+        return self.__species
+
+    @species.setter
+    def species(self, species):
+        if not species:
+            raise ValueError("Species cannot be empty")
+        self.__species = species
+
+    @property
     def age(self):
         return self.__age
 
@@ -48,9 +60,29 @@ class Animal:
             raise ValueError("Age cannot be negative")
         self.__age = age
 
+    @property
+    def diet(self):
+        return self.__diet
+
+    @diet.setter
+    def diet(self, diet):
+        if not diet:
+            raise ValueError("Diet cannot be empty")
+        self.__diet = diet
+
+    @property
+    def sound(self):
+        return self.__sound
+
+    @sound.setter
+    def sound(self, sound):
+        if not sound:
+            raise ValueError("Sound cannot be empty")
+        self.__sound = sound
+
     # Animal behaviours
     def make_sound(self):
-        pass
+        return f"{self.__name} is makes a {self.__sound} noise"
 
     def eat(self):
         return f"{self.__name} is eating {self.__diet}"
