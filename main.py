@@ -14,3 +14,17 @@ Rio = Animal(name= "Rio", species= "Eagle", age= 9, diet= "Carnivore", sound= "S
 
 print(Simba)
 print(Rio)
+
+print(Simba.make_sound())
+print(Rio.make_sound())
+
+print(Simba.eat())
+print(Rio.eat())
+
+print(Simba.sleep())
+print(Rio.sleep())
+
+Simba.add_health_record(description= "Cut on Paw", severity= "Low", treatment_notes= "Wound has been cleaned and bandage has been applied")
+
+print(Simba.show_health_records())
+print(Rio.show_health_records())

@@ -85,7 +85,7 @@ class Animal:
         return f"{self.__name} is makes a {self.__sound} noise"
 
     def eat(self):
-        return f"{self.__name} is eating {self.__diet}"
+        return f"{self.__name} is a {self.__diet}"
 
     def sleep(self):
         return f"{self.__name} is currently sleeping"
