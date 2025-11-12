@@ -90,4 +90,15 @@ class Animal:
     def sleep(self):
         return f"{self.__name} is currently sleeping"
 
+    # HealthRecord Management
+    def add_health_record(self, description, severity, treatment_notes = ""):
+        record = HealthRecord(description, severity, treatment_notes)
+        self.__health_records.append(record)
+
+    def show_health_records(self):
+        if not self.__health_records:
+            return f"no health records available for {self.__name}"
+        return "\n".join(str(record) for record in self.__health_records)
+
+
 
