@@ -100,5 +100,9 @@ class Animal:
             return f"no health records available for {self.__name}"
         return "\n".join(str(record) for record in self.__health_records)
 
+    def __str__(self):
+        return f"{self.__name} the {self.__species}, Age: {self.__age}, Diet: {self.__diet}"
+
+
 
 
