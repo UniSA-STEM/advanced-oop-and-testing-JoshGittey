@@ -15,7 +15,7 @@ class Staff:
         self.__age = age
         self.__role = role
         self.__assigned_enclosures = []
-        self.__assigned_enclosures = []
+        self.__assigned_animals = []
 
     @property
     def name(self):
@@ -43,7 +43,12 @@ class Staff:
     def assign_animal(self, animal):
         if not isinstance(animal, Animal):
             raise TypeError("Assigned object must be an Animal")
-        self.__assigned_enclosures.append(animal)
+        self.__assigned_animals.append(animal)
+
+    def unassign_animal(self, animal):
+        if not isinstance(animal, Animal):
+            raise TypeError("Assigned object must be an Animal")
+        self.__assigned_animals.remove(animal)
 
     def list_assignments(self):
         enclosure_list = ", ".join([e.biome for e in self.__assigned_enclosures]) or "None"
@@ -62,16 +67,24 @@ class Zookeeper(Staff):
         super().__init__(name, age, "Zookeeper")
 
     def feed_animals(self):
-        actions = []
-        for animal in self.__assigned_animals:
-            actions.append(f"{self.name} feeds {animal.name} ({animal.species}.")
-        return "\n".join(actions) if actions else f"{self.name} has no animals"
+        if not self.__assigned_animals:
+            return f"{self.name} has no animals"
+
+        actions = [
+            f"{self.name} feeds {animal.name} the {animal.species}."
+            for animal in self.__assigned_animals
+        ]
+        return "\n".join(actions)
 
     def clean_enclosures(self):
+        if not self.__assigned_enclosures:
+            return f"{self.name} has no enclosures."
+
         actions = []
         for enclosure in self.__assigned_enclosures:
             actions.append(enclosure.clean_enclosures())
-        return "\n".join(actions) if actions else f"{self.name} has no enclosures"
+
+        return "\n".join(actions)
 
     def perform_duties(self):
         return self.feed_animals() + "\n" + self.clean_enclosures()
@@ -81,7 +94,7 @@ class Zookeeper(Staff):
             super().__init__(name, age, "Veterinarian")
 
         def health_check(self):
-            if not self._assigned_animals:
+            if not self.__assigned_animals:
                 return f"{self.name} has no animals"
             actions = [
                 f"{self.name} conducts a health check on {animal.name} the {animal.species}."
@@ -91,5 +104,3 @@ class Zookeeper(Staff):
 
         def perform_duties(self):
             return self.health_check()
-                
-
