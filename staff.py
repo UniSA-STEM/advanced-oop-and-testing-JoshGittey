@@ -62,3 +62,7 @@ class Zookeeper(Staff):
         super().__init__(name, age, "Zookeeper")
 
     def feed_animals(self):
+        actions = []
+        for animal in self.__assigned_animals:
+            actions.append(f"{self.name} feeds {animal.name} ({animal.species}.")
+        return "\n".join(actions) if actions else f"{self.name} has no animals"
