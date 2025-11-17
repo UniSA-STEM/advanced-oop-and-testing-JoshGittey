@@ -10,9 +10,10 @@ import animal
 from animal import Animal
 
 class Enclosure:
-    def __init__(self, size, biome, max_capacity, allowed_species=None):
+    def __init__(self, size, biome, cleanliness_level, max_capacity, allowed_species=None):
         self.__size = size
         self.__biome = biome
+        self.__cleanliness_level = cleanliness_level
         self.__animals = []
         self.__max_capacity = max_capacity
         self.__allowed_species = allowed_species if allowed_species else []
