@@ -16,3 +16,21 @@ class Staff:
         self.__role = role
         self.__assigned_enclosures = []
         self.__assigned_enclosures = []
+
+    @property
+    def name(self):
+        return self.__name
+
+    @property
+    def age(self):
+        return self.__age
+
+    @property
+    def role(self):
+        return self.__role
+
+
+    def assign_enclosure(self, enclosure):
+        if not isinstance(enclosure, Enclosure):
+            raise TypeError("Assigned object must be an Enclosure")
+        self.__assigned_enclosures.append(enclosure)
