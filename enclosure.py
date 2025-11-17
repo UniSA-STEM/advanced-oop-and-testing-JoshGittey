@@ -17,22 +17,21 @@ class Enclosure:
         self.__max_capacity = max_capacity
         self.__allowed_species = allowed_species if allowed_species else []
 
+    @property
+    def size(self):
+        return self.__size
+
+    @property
+    def biome(self):
+        return self.__biome
+
+    @property
+    def max_capacity(self):
+        return self.__max_capacity
+
     def add_animal(self, animal):
       if not isinstance(animal, Animal):
           raise TypeError("Animal must be an object to be added")
-
-      @property
-      def size(self):
-          return self.__size
-
-      @property
-      def biome(self):
-          return self.__biome
-
-      @property
-      def max_capacity(self):
-          return self.__max_capacity
-
 
       if animal in self.__animals:
           return f"{animal.species} in enclosure already"
