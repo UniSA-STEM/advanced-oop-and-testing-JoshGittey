@@ -56,3 +56,9 @@ class Staff:
 
     def __str__(self):
         return f"{self.__name} (Age: {self.__age}), Role: {self.__role}"
+
+class Zookeeper(Staff):
+    def __init__(self, name, age):
+        super().__init__(name, age, "Zookeeper")
+
+    def feed_animals(self):
