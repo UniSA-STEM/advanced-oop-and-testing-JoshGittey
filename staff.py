@@ -66,3 +66,9 @@ class Zookeeper(Staff):
         for animal in self.__assigned_animals:
             actions.append(f"{self.name} feeds {animal.name} ({animal.species}.")
         return "\n".join(actions) if actions else f"{self.name} has no animals"
+
+    def clean_enclosures(self):
+        actions = []
+        for enclosure in self.__assigned_enclosures:
+            actions.append(enclosure.clean_enclosures())
+        return "\n".join(actions) if actions else f"{self.name} has no enclosures"
