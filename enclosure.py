@@ -10,18 +10,32 @@ import animal
 from animal import Animal
 
 class Enclosure:
-    def __init__(self, size, biome, max_capacity):
+    def __init__(self, size, biome, max_capacity, allowed_species=None):
         self.__size = size
         self.__biome = biome
         self.__animals = []
         self.__max_capacity = max_capacity
+        self.__allowed_species = allowed_species if allowed_species else []
 
     def add_animal(self, animal):
       if not isinstance(animal, Animal):
           raise TypeError("Animal must be an object to be added")
 
+      @property
+      def size(self):
+          return self.__size
+
+      @property
+      def biome(self):
+          return self.__biome
+
+      @property
+      def max_capacity(self):
+          return self.__max_capacity
+
+
       if animal in self.__animals:
-          raise ValueError("Animal in enclosure already")
+          return f"{animal.species} in enclosure already"
 
       if self.check_animal_capacity():
           self.__animals.append(animal)
