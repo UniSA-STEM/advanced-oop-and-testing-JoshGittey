@@ -75,7 +75,7 @@ class Enclosure:
         return f"the {self.__biome} has been cleaned up. The cleanliness is now back to 100%"
 
     def __str__(self):
-        return f"Enclosure ({self.__biome}) - {len(self.__animals)}/{self.__max_capacity} animals"
+        return f"Enclosure ({self.__biome}) - {len(self.__animals)}/{self.__max_capacity} animals, Cleanliness: {self.cleanliness_level}%"
 
 
 
