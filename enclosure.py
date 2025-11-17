@@ -27,6 +27,16 @@ class Enclosure:
         return self.__biome
 
     @property
+    def cleanliness_level(self):
+        return self.__cleanliness_level
+
+    @cleanliness_level.setter
+    def cleanliness_level(self, value):
+        if not (0 <= value <= 100):
+            raise ValueError("Cleanliness level must be between 0 and 100")
+        self.__cleanliness_level = value
+
+    @property
     def max_capacity(self):
         return self.__max_capacity
 
