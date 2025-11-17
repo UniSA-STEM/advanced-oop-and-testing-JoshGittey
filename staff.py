@@ -81,10 +81,13 @@ class Zookeeper(Staff):
             super().__init__(name, age, "Veterinarian")
 
         def health_check(self):
-            actions = []
-            for animal in self.__assigned_animals:
-                actions.append(f"{self.name} conducts a health check on {animal.name} the {animal.species}.")
-            return "\n".join(actions) if actions else f"{self.name} has no animals"
+            if not self._assigned_animals:
+                return f"{self.name} has no animals"
+            actions = [
+                f"{self.name} conducts a health check on {animal.name} the {animal.species}."
+                for animal in self.__assigned_animals
+            ]
+            return "\n".join(actions)
 
         def perform_duties(self):
             return self.health_check()
