@@ -50,3 +50,9 @@ class Staff:
         animal_list = ", ".join([a.name for a in self.__assigned_animals]) or "None"
 
         return f"{self.__name}'s Assignments: \n- Enclosures: {enclosure_list}\n- Animals: {animal_list}"
+
+    def perform_duties(self):
+        return f"{self.__name} is currently performing staff duties" #polymorphism expected to override this
+
+    def __str__(self):
+        return f"{self.__name} (Age: {self.__age}), Role: {self.__role}"
