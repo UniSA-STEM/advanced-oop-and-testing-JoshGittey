@@ -63,7 +63,7 @@ class Enclosure:
         return f"Removed {animal.name} from the enclosure"
 
     def check_animal_capacity(self):
-        return len(self.__animals) <= self.__max_capacity
+        return len(self.__animals) < self.__max_capacity
 
     def list_animals(self):
         if not self.__animals:
