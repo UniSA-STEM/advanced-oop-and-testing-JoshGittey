@@ -11,77 +11,76 @@ from enclosure import Enclosure
 
 class Staff:
     def __init__(self, name, age, role):
-        self.__name = name
-        self.__age = age
-        self.__role = role
-        self.__assigned_enclosures = []
-        self.__assigned_animals = []
+        self._name = name
+        self._age = age
+        self._role = role
+        self._assigned_enclosures = []
+        self._assigned_animals = []
 
     @property
     def name(self):
-        return self.__name
+        return self._name
 
     @property
     def age(self):
-        return self.__age
+        return self._age
 
     @property
     def role(self):
-        return self.__role
+        return self._role
 
 
     def assign_enclosure(self, enclosure):
         if not isinstance(enclosure, Enclosure):
             raise TypeError("Assigned object must be an Enclosure")
-        self.__assigned_enclosures.append(enclosure)
+        self._assigned_enclosures.append(enclosure)
 
     def unassign_enclosure(self, enclosure):
         if not isinstance(enclosure, Enclosure):
             raise TypeError("Assigned object must be an Enclosure")
-        self.__assigned_enclosures.remove(enclosure)
+        self._assigned_enclosures.remove(enclosure)
 
     def assign_animal(self, animal):
         if not isinstance(animal, Animal):
             raise TypeError("Assigned object must be an Animal")
-        self.__assigned_animals.append(animal)
+        self._assigned_animals.append(animal)
 
     def unassign_animal(self, animal):
         if not isinstance(animal, Animal):
             raise TypeError("Assigned object must be an Animal")
-        self.__assigned_animals.remove(animal)
+        self._assigned_animals.remove(animal)
 
     def list_assignments(self):
-        enclosure_list = ", ".join([e.biome for e in self.__assigned_enclosures]) or "None"
-        animal_list = ", ".join([a.name for a in self.__assigned_animals]) or "None"
-
-        return f"{self.__name}'s Assignments: \n- Enclosures: {enclosure_list}\n- Animals: {animal_list}"
+        enclosure_list = ", ".join([e.biome for e in self._assigned_enclosures]) or "None"
+        animal_list = ", ".join([a.name for a in self._assigned_animals]) or "None"
+        return f"{self._name}'s Assignments: \n- Enclosures: {enclosure_list}\n- Animals: {animal_list}"
 
     def perform_duties(self):
-        return f"{self.__name} is currently performing staff duties" #polymorphism expected to override this
+        return f"{self._name} is currently performing staff duties" #polymorphism expected to override this
 
     def __str__(self):
-        return f"{self.__name} (Age: {self.__age}), Role: {self.__role}"
+        return f"{self._name} (Age: {self._age}), Role: {self._role}"
 
 class Zookeeper(Staff):
     def __init__(self, name, age):
         super().__init__(name, age, "Zookeeper")
 
     def feed_animals(self):
-        if not self.__assigned_animals:
+        if not self._assigned_animals:
             return f"{self.name} has no animals"
 
         actions = [
             f"{self.name} feeds {animal.name} the {animal.species}."
-            for animal in self.__assigned_animals
+            for animal in self._assigned_animals
         ]
         return "\n".join(actions)
 
     def clean_enclosures(self):
-        if not self.__assigned_enclosures:
+        if not self._assigned_enclosures:
             return f"{self.name} has no enclosures."
 
         actions = []
-        for enclosure in self.__assigned_enclosures:
+        for enclosure in self._assigned_enclosures:
             actions.append(enclosure.clean_enclosures())
 
         return "\n".join(actions)
@@ -94,11 +93,11 @@ class Veterinarian(Staff):
         super().__init__(name, age, "Veterinarian")
 
     def health_check(self):
-        if not self.__assigned_animals:
+        if not self._assigned_animals:
             return f"{self.name} has no animals"
         actions = [
             f"{self.name} conducts a health check on {animal.name} the {animal.species}."
-            for animal in self.__assigned_animals
+            for animal in self._assigned_animals
         ]
         return "\n".join(actions)
 
