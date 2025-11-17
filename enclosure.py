@@ -43,13 +43,10 @@ class Enclosure:
     def add_animal(self, animal):
       if not isinstance(animal, Animal):
           raise TypeError("Animal must be an object to be added")
-
       if animal in self.__animals:
           return f"{animal.name} is already in this enclosure already"
-
       if self.__allowed_species and animal.species not in self.__allowed_species:
           return f"{animal.species} is not allowed in this {self.__biome} enclosure"
-
       if not self.check_animal_capacity():
           return f"enclosure is full {animal.name} cannot be added"
 
@@ -59,7 +56,6 @@ class Enclosure:
     def remove_animal(self, animal):
         if not isinstance(animal, Animal):
             raise TypeError("Animal must be an object to be removed")
-
         if animal not in self.__animals:
             return f"{animal.name} is not in this enclosure"
 
@@ -73,6 +69,10 @@ class Enclosure:
         if not self.__animals:
             return f"No animals are in this enclosure ({self.__biome})"
         return "\n".join(f"{animal.name} the ({animal.species}), Age: {animal.age} years old" for animal in self.__animals)
+
+    def clean_enclosure(self):
+        self.__cleanliness_level = 100
+        return f"the {self.__biome} has been cleaned up. The cleanliness is now back to 100%"
 
     def __str__(self):
         return f"Enclosure ({self.__biome}) - {len(self.__animals)}/{self.__max_capacity} animals"
