@@ -89,18 +89,18 @@ class Zookeeper(Staff):
     def perform_duties(self):
         return self.feed_animals() + "\n" + self.clean_enclosures()
 
-    class Veterinarian(Staff):
-        def __init__(self, name, age):
-            super().__init__(name, age, "Veterinarian")
+class Veterinarian(Staff):
+    def __init__(self, name, age):
+        super().__init__(name, age, "Veterinarian")
 
-        def health_check(self):
-            if not self.__assigned_animals:
-                return f"{self.name} has no animals"
-            actions = [
-                f"{self.name} conducts a health check on {animal.name} the {animal.species}."
-                for animal in self.__assigned_animals
-            ]
-            return "\n".join(actions)
+    def health_check(self):
+        if not self.__assigned_animals:
+            return f"{self.name} has no animals"
+        actions = [
+            f"{self.name} conducts a health check on {animal.name} the {animal.species}."
+            for animal in self.__assigned_animals
+        ]
+        return "\n".join(actions)
 
-        def perform_duties(self):
-            return self.health_check()
+    def perform_duties(self):
+        return self.health_check()
