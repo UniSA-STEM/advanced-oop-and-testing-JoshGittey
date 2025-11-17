@@ -75,3 +75,18 @@ class Zookeeper(Staff):
 
     def perform_duties(self):
         return self.feed_animals() + "\n" + self.clean_enclosures()
+
+    class Veterinarian(Staff):
+        def __init__(self, name, age):
+            super().__init__(name, age, "Veterinarian")
+
+        def health_check(self):
+            actions = []
+            for animal in self.__assigned_animals:
+                actions.append(f"{self.name} conducts a health check on {animal.name} the {animal.species}.")
+            return "\n".join(actions) if actions else f"{self.name} has no animals"
+
+        def perform_duties(self):
+            return self.health_check()
+                
+
