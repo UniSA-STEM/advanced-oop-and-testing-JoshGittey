@@ -34,3 +34,19 @@ class Staff:
         if not isinstance(enclosure, Enclosure):
             raise TypeError("Assigned object must be an Enclosure")
         self.__assigned_enclosures.append(enclosure)
+
+    def unassign_enclosure(self, enclosure):
+        if not isinstance(enclosure, Enclosure):
+            raise TypeError("Assigned object must be an Enclosure")
+        self.__assigned_enclosures.remove(enclosure)
+
+    def assign_animal(self, animal):
+        if not isinstance(animal, Animal):
+            raise TypeError("Assigned object must be an Animal")
+        self.__assigned_enclosures.append(animal)
+
+    def list_assignments(self):
+        enclosure_list = ", ".join([e.biome for e in self.__assigned_enclosures]) or "None"
+        animal_list = ", ".join([a.name for a in self.__assigned_animals]) or "None"
+
+        return f"{self.__name}'s Assignments: \n- Enclosures: {enclosure_list}\n- Animals: {animal_list}"
