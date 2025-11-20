@@ -61,9 +61,9 @@ class Staff:
         self.__assigned_animals.remove(animal)
 
     def list_assignments(self):
-        enclosure_list = ", ".join([e.biome for e in self._assigned_enclosures]) or "None"
-        animal_list = ", ".join([a.name for a in self._assigned_animals]) or "None"
-        return f"{self._name}'s Assignments: \n- Enclosures: {enclosure_list}\n- Animals: {animal_list}"
+        enclosure_list = ", ".join([e.biome for e in self.__assigned_enclosures]) or "None"
+        animal_list = ", ".join([a.name for a in self.__assigned_animals]) or "None"
+        return f"{self.__name}'s Assignments: \n- Enclosures: {enclosure_list}\n- Animals: {animal_list}"
 
     def perform_duties(self):
         return f"{self._name} is currently performing staff duties" #polymorphism expected to override this
