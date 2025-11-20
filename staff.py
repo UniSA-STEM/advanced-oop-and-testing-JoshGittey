@@ -90,7 +90,7 @@ class Zookeeper(Staff):
             return f"{self.name} has no enclosures"
 
         actions = [
-            enclosure.clean_enclosures() for enclosure in self.assigned_enclosures
+            enclosure.clean_enclosure() for enclosure in self.assigned_enclosures
         ]
         return "\n".join(actions)
 
