@@ -17,6 +17,7 @@ Mona = Animal("Mona", "Monkey", 3, "Omnivore", "screech")
 
 Simba.add_health_record("Checkup", "Low", "All good")
 Ella.add_health_record("Trunk injury", "Medium", "Bandaged")
+Mona.add_health_record("Routine Vaccination", "Low", "All good")
 
 # Create enclosures
 savannah = Enclosure(1000, "Savannah", 80, 3, allowed_species=["Lion"])
@@ -46,12 +47,15 @@ print(keeper.list_assignments())
 print("\n--- Veterinarian Duties ---")
 print(vet.perform_duties())
 
+# Display zookeepers duties
 print("\n--- Zookeeper Duties ---")
 print(keeper.perform_duties())
 
+# Display cleaning enclosures
 print(savannah.clean_enclosure())
 print(jungle.clean_enclosure())
 
+# Displaying animal health records
 print(Simba.show_health_records())
 print(Ella.show_health_records())
-
+print(Mona.show_health_records())
