@@ -7,7 +7,7 @@ Username: bizvy001
 This is my own work as defined by the University's Academic Integrity Policy.
 """
 from enclosure import Enclosure
-from staff import Staff
+from staff import Staff, Zookeeper, Veterinarian
 from animal import Animal
 
 # animals created
@@ -27,3 +27,6 @@ print(savannah.add_animal(Simba))
 print(savannah2.add_animal(Ella))
 print(jungle.add_animal(Mona))
 
+# Create staff members
+vet = Veterinarian("Dr. Smith", 35)
+keeper = Zookeeper("John", 28)
