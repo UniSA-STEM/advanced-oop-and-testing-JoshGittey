@@ -103,11 +103,11 @@ class Veterinarian(Staff):
         super().__init__(name, age, "Veterinarian")
 
     def health_check(self):
-        if not self._assigned_animals:
-            return f"{self.name} has no animals"
+        if not self.assigned_animals:
+            return f"{self.name} has no animals assigned to them"
         actions = [
             f"{self.name} conducts a health check on {animal.name} the {animal.species}."
-            for animal in self._assigned_animals
+            for animal in self.assigned_animals
         ]
         return "\n".join(actions)
 
