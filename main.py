@@ -39,3 +39,19 @@ keeper.assign_animal(Mona)
 keeper.assign_enclosure(savannah)
 keeper.assign_enclosure(jungle)
 
+print(vet.list_assignments())
+print(keeper.list_assignments())
+
+# Staff performing duties
+print("\n--- Veterinarian Duties ---")
+print(vet.perform_duties())
+
+print("\n--- Zookeeper Duties ---")
+print(keeper.perform_duties())
+
+print(savannah.clean_enclosure())
+print(jungle.clean_enclosure())
+
+print(Simba.show_health_records())
+print(Ella.show_health_records())
+
