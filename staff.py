@@ -1,9 +1,9 @@
 """
-File: filename.py
-Description: A brief description of this Python module.
-Author: Billy Bizilis
-ID: 110100110
-Username: bizvy001
+File: staff.py
+Description: This module holds the code for my staff class for this project.
+Author: Wieu Kuach
+ID: 110409436
+Username: kuawy004
 This is my own work as defined by the University's Academic Integrity Policy.
 """
 from animal import Animal

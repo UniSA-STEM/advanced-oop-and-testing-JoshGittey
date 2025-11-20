@@ -1,9 +1,9 @@
 """
-File: filename.py
-Description: A brief description of this Python module.
-Author: Billy Bizilis
-ID: 110100110
-Username: bizvy001
+File: main.py
+Description: This is the final script for my project using objects from all the different modules.
+Author: Wieu Kuach
+ID: 110409436
+Username: kuawy004
 This is my own work as defined by the University's Academic Integrity Policy.
 """
 from enclosure import Enclosure
