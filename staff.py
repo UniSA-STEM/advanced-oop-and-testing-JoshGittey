@@ -39,7 +39,6 @@ class Staff:
     assigned_enclosures = property(get_assigned_enclosures)
     assigned_animals = property(get_assigned_animals)
 
-
     def assign_enclosure(self, enclosure):
         if not isinstance(enclosure, Enclosure):
             raise TypeError("Assigned object must be an Enclosure")
@@ -70,7 +69,7 @@ class Staff:
         return f"{self.__name} is currently performing staff duties"
 
     def __str__(self):
-        return f"{self._name} (Age: {self._age}), Role: {self._role}"
+        return f"{self.__name} (Age: {self.__age}), Role: {self.__role}"
 
 class Zookeeper(Staff):
     def __init__(self, name, age):
