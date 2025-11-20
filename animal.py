@@ -30,55 +30,31 @@ class Animal:
         self.__sound = sound
         self.__health_records = [] # list will hold HealthRecord objects
 
-    @property
-    def name(self):
+    def get_name(self):
         return self.__name
 
-    @name.setter
-    def name(self, name):
-        if not name:
-            raise ValueError("Name cannot be empty")
-        self.__name = name
-
-    @property
-    def species(self):
+    def get_species(self):
         return self.__species
 
-    @species.setter
-    def species(self, species):
-        if not species:
-            raise ValueError("Species cannot be empty")
-        self.__species = species
-
-    @property
-    def age(self):
+    def get_age(self):
         return self.__age
 
-    @age.setter
-    def age(self, age):
-        if age < 0:
-            raise ValueError("Age cannot be negative")
-        self.__age = age
-
-    @property
-    def diet(self):
+    def get_diet(self):
         return self.__diet
 
-    @diet.setter
-    def diet(self, diet):
-        if not diet:
-            raise ValueError("Diet cannot be empty")
-        self.__diet = diet
-
-    @property
-    def sound(self):
+    def get_sound(self):
         return self.__sound
 
-    @sound.setter
-    def sound(self, sound):
-        if not sound:
-            raise ValueError("Sound cannot be empty")
-        self.__sound = sound
+    def get_health_records(self):
+        return self.__health_records
+
+    # Properties
+    name = property(get_name)
+    species = property(get_species)
+    age = property(get_age)
+    diet = property(get_diet)
+    sound = property(get_sound)
+    health_records = property(get_health_records)
 
     # Animal behaviours
     def make_sound(self):
