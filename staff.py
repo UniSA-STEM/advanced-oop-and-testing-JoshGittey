@@ -94,6 +94,9 @@ class Zookeeper(Staff):
         ]
         return "\n".join(actions)
 
+    def perform_duties(self):
+        return self.feed_animals() + "\n" + self.clean_enclosures()
+
 class Veterinarian(Staff):
     def __init__(self, name, age):
         super().__init__(name, age, "Veterinarian")
