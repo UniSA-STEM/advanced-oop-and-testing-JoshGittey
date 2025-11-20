@@ -43,7 +43,7 @@ class Staff:
     def assign_enclosure(self, enclosure):
         if not isinstance(enclosure, Enclosure):
             raise TypeError("Assigned object must be an Enclosure")
-        self._assigned_enclosures.append(enclosure)
+        self.__assigned_enclosures.append(enclosure)
 
     def unassign_enclosure(self, enclosure):
         if not isinstance(enclosure, Enclosure):
