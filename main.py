@@ -30,3 +30,12 @@ print(jungle.add_animal(Mona))
 # Create staff members
 vet = Veterinarian("Dr. Smith", 35)
 keeper = Zookeeper("John", 28)
+
+# Assign animals to staff
+vet.assign_animal(Simba)
+vet.assign_animal(Ella)
+
+keeper.assign_animal(Mona)
+keeper.assign_enclosure(savannah)
+keeper.assign_enclosure(jungle)
+
