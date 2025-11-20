@@ -46,7 +46,7 @@ class Enclosure:
           return f"{animal.name} is already in this enclosure already"
       if self.__allowed_species and animal.species not in self.__allowed_species:
           return f"{animal.species} is not allowed in this {self.__biome} enclosure"
-      if not self.check_animal_capacity():
+      if not self.check_enclosure_capacity():
           return f"enclosure is full {animal.name} cannot be added"
 
       self.__animals.append(animal)
@@ -61,7 +61,7 @@ class Enclosure:
         self.__animals.remove(animal)
         return f"Removed {animal.name} from the enclosure"
 
-    def check_animal_capacity(self):
+    def check_enclosure_capacity(self):
         return len(self.__animals) < self.__max_capacity
 
     def list_animals(self):
