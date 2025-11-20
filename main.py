@@ -6,32 +6,18 @@ ID: 110100110
 Username: bizvy001
 This is my own work as defined by the University's Academic Integrity Policy.
 """
-
+from enclosure import Enclosure
+from staff import Staff
 from animal import Animal
 
+# animals created
 Simba = Animal(name = "Leo", species= "Lion", age =5, diet= "Carnivore", sound= "Roar")
-Rio = Animal(name= "Rio", species= "Eagle", age= 9, diet= "Carnivore", sound= "Squawk")
-Cody = Animal(name= "Cody", species= "Penguin", age= 2, diet= "Carnivore", sound= "Chirp")
+Ella = Animal("Ella", "Elephant", 10, "Herbivore", "trumpet")
+Mona = Animal("Mona", "Monkey", 3, "Omnivore", "screech")
 
-print(Simba)
-print(Rio)
-print(Cody)
+Simba.add_health_record("Checkup", "Low", "All good")
+Ella.add_health_record("Trunk injury", "Medium", "Bandaged")
 
-print(Simba.make_sound())
-print(Rio.make_sound())
-print(Cody.make_sound())
-
-print(Simba.eat())
-print(Rio.eat())
-print(Cody.eat())
-
-print(Simba.sleep())
-print(Rio.sleep())
-print(Cody.sleep())
-
-Simba.add_health_record(description= "Cut on Paw", severity= "Low", treatment_notes= "Wound has been cleaned and bandage has been applied")
-Cody.add_health_record(description= "Feather loss", severity= "Medium", treatment_notes= "Vitamin supplement has been applied")
-
-print(Simba.show_health_records())
-print(Rio.show_health_records())
-print(Cody.show_health_records())
+# Create enclosures
+savannah = Enclosure(1000, "Savannah", 80, 3, allowed_species=["Lion", "Elephant"])
+jungle = Enclosure(500, "Jungle", 90, 5, allowed_species=["Monkey"])
