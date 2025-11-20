@@ -29,6 +29,7 @@ print(savannah2.add_animal(Ella))
 print(jungle.add_animal(Mona))
 
 # Create staff members
+print("\n" + "="*40)
 vet = Veterinarian("Dr. Smith", 35)
 keeper = Zookeeper("John", 28)
 
@@ -41,6 +42,7 @@ keeper.assign_enclosure(savannah)
 keeper.assign_enclosure(jungle)
 
 print(vet.list_assignments())
+print("\n")
 print(keeper.list_assignments())
 
 # Staff performing duties
@@ -56,6 +58,7 @@ print(savannah.clean_enclosure())
 print(jungle.clean_enclosure())
 
 # Displaying animal health records
+print("\n" + "="*40)
 print(Simba.show_health_records())
 print(Ella.show_health_records())
 print(Mona.show_health_records())
