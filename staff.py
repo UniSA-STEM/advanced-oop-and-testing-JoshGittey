@@ -66,7 +66,8 @@ class Staff:
         return f"{self.__name}'s Assignments: \n- Enclosures: {enclosure_list}\n- Animals: {animal_list}"
 
     def perform_duties(self):
-        return f"{self._name} is currently performing staff duties" #polymorphism expected to override this
+        """this method should be overridden by subclasses to perform specific duties."""
+        return f"{self.__name} is currently performing staff duties"
 
     def __str__(self):
         return f"{self._name} (Age: {self._age}), Role: {self._role}"
