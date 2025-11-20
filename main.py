@@ -22,3 +22,8 @@ Ella.add_health_record("Trunk injury", "Medium", "Bandaged")
 savannah = Enclosure(1000, "Savannah", 80, 3, allowed_species=["Lion"])
 savannah2 = Enclosure(1000, "Savannah", 80, 3, allowed_species=["Elephant"])
 jungle = Enclosure(500, "Jungle", 90, 5, allowed_species=["Monkey"])
+
+print(savannah.add_animal(Simba))
+print(savannah2.add_animal(Ella))
+print(jungle.add_animal(Mona))
+
