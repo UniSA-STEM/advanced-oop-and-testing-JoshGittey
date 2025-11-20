@@ -18,27 +18,26 @@ class Enclosure:
         self.__max_capacity = max_capacity
         self.__allowed_species = allowed_species if allowed_species else []
 
-    @property
-    def size(self):
+    def get_size(self):
         return self.__size
 
-    @property
-    def biome(self):
+    def get_biome(self):
         return self.__biome
 
-    @property
-    def cleanliness_level(self):
+    def get_cleanliness_level(self):
         return self.__cleanliness_level
 
-    @cleanliness_level.setter
-    def cleanliness_level(self, value):
-        if not (0 <= value <= 100):
-            raise ValueError("Cleanliness level must be between 0 and 100")
-        self.__cleanliness_level = value
+    def get_animals(self):
+        return self.__animals
 
-    @property
-    def max_capacity(self):
+    def get_max_capacity(self):
         return self.__max_capacity
+
+    size = property(get_size)
+    biome = property(get_biome)
+    cleanliness_level = property(get_cleanliness_level)
+    animals = property(get_animals)
+    max_capacity = property(get_max_capacity)
 
     def add_animal(self, animal):
       if not isinstance(animal, Animal):
