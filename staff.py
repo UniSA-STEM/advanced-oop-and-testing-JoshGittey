@@ -76,27 +76,23 @@ class Zookeeper(Staff):
         super().__init__(name, age, "Zookeeper")
 
     def feed_animals(self):
-        if not self._assigned_animals:
-            return f"{self.name} has no animals"
+        if not self.assigned_animals:
+            return f"{self.name} has no animals assigned to them"
 
         actions = [
             f"{self.name} feeds {animal.name} the {animal.species}."
-            for animal in self._assigned_animals
+            for animal in self.assigned_animals
         ]
         return "\n".join(actions)
 
     def clean_enclosures(self):
-        if not self._assigned_enclosures:
-            return f"{self.name} has no enclosures."
+        if not self.assigned_enclosures:
+            return f"{self.name} has no enclosures"
 
-        actions = []
-        for enclosure in self._assigned_enclosures:
-            actions.append(enclosure.clean_enclosures())
-
+        actions = [
+            enclosure.clean_enclosures() for enclosure in self.assigned_enclosures
+        ]
         return "\n".join(actions)
-
-    def perform_duties(self):
-        return self.feed_animals() + "\n" + self.clean_enclosures()
 
 class Veterinarian(Staff):
     def __init__(self, name, age):
