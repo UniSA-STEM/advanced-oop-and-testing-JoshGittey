@@ -11,23 +11,33 @@ from enclosure import Enclosure
 
 class Staff:
     def __init__(self, name, age, role):
-        self._name = name
-        self._age = age
-        self._role = role
-        self._assigned_enclosures = []
-        self._assigned_animals = []
+        self.__name = name
+        self.__age = age
+        self.__role = role
+        self.__assigned_enclosures = []
+        self.__assigned_animals = []
 
-    @property
-    def name(self):
-        return self._name
+    def get_name(self):
+        return self.__name
 
-    @property
-    def age(self):
-        return self._age
+    def get_age(self):
+        return self.__age
 
-    @property
-    def role(self):
-        return self._role
+    def get_role(self):
+        return self.__role
+
+    def get_assigned_enclosures(self):
+        return self.__assigned_enclosures
+
+    def get_assigned_animals(self):
+        return self.__assigned_animals
+
+    #Properties
+    name = property(get_name)
+    age = property(get_age)
+    role = property(get_role)
+    assigned_enclosures = property(get_assigned_enclosures)
+    assigned_animals = property(get_assigned_animals)
 
 
     def assign_enclosure(self, enclosure):
