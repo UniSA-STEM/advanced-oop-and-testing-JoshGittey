@@ -58,7 +58,7 @@ class Animal:
 
     # Animal behaviours
     def make_sound(self):
-        return f"{self.__name} is makes a {self.__sound} noise"
+        return f"{self.__name} is making a {self.__sound} noise"
 
     def eat(self):
         return f"{self.__name} is a {self.__diet}"
